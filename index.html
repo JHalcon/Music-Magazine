@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style>
+    #logform{
+        width:500px;
+        margin:auto;
+        margin-top:100px;
+    }
+    #regform{
+        width:500px;
+        margin:auto;
+        margin-top:100px;
+    }
+
+#usermail{
+  color:blue;
+}
+#regform h2{
+  text-align: center;
+}
+#userPage{
+  display:none;
+  text-align: center;
+  }
+ul {
+  list-style-type: none;
+}
+#checkForm input {
+  margin:10px;
+}
+.edit-div{
+  margin:10px;
+  display:none;
+}
+.edit-div input{
+  margin:5px;
+  size:200px;
+}
+/*#userPanel ul li{
+  border: 2px solid grey;
+  width: 80%;
+  margin: 15px;
+  padding: 10px;
+}*/
+#lista li span {
+  margin:5px;
+
+
+}
+#lista li span:first-child{
+  color:blue;
+}
+#lista li button{
+  margin-left:10px;
+}
+#randomSong{
+  display:none;
+}
+.navbar button{
+  margin:5px;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">MusicMagazine</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">User: <span  id="usermail"></span></a>
+            </li>
+            <li class="nav-item">
+             <button id="SI" class="btn btn-primary">Sign in</button>
+            </li>
+            <li class="nav-item">
+              <button id="LI" class="btn btn-primary">Log in</button>
+             </li>
+             <li class="nav-item">
+              <button id="LO" class="btn btn-primary">Logout</button>
+             </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container p-3">
+        <div class="container" id="main">
+         <h1 class="text-center">MusicMagazine</h1>
+         <h5 class="text-center m-2">Virtual space for you music</h5>
+         <hr>
+        </div>
+
+        <div id="login">
+          <h2 class="text-center m-1">Log in </h2> 
+            <form id="logform">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="password">Haslo</label>
+                  <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Log in</button>
+              </form>
+        </div>
+
+        <div id="regpage">
+         <h2 class="text-center m-3">Sign in </h2> 
+          <form id="regform">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="regemail" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="password">Haslo</label>
+                <input type="password" class="form-control" id="regpassword" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+      </div>
+      <div id="userPanel">
+        <div class="container">
+          <h2 class="text-center">User page</h2>
+          <!-- Search form -->
+          <input id="wordToSearch" class="form-control m-3" type="text" placeholder="Search" aria-label="Search">
+          <div id="filterCat">
+            <form class="m-3" id="checkForm">
+            </form>
+          </div>
+          <ul id="lista" class class="list-group">
+
+          </ul>
+          <div id="addSongDiv" class="container-fluid d-flex justify-content-center">
+            <div id="add">
+              <h2>Add new song</h2>
+            <form id="addSong">
+           
+            <div class="row">
+              <div class="col">
+              Title<br>
+              <input id="sName" type="text" class="form-control"><br>
+            </div>
+            <div class="col">
+              Author<br>
+              <input id="sAuthor" type="text"  class="form-control"><br>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col">
+              Category<br>
+             <!-- <button id="selectBTN">Select category</button>-->
+              <select id="categories" onchange="makeSubmenu(this.value)" class="form-control">
+              </select>
+            </div>
+            <div class="col">
+              Subcategory<br>
+              <select id="subcategories" class="form-control" value="" >
+              </select>
+            </div>
+              </div>
+            <div class="row">
+              <div class="col">
+            <input type="submit" class="btn btn-success m-3" value="Add song">
+          </div>
+          </div>
+            </form>
+            </div>
+            
+            </div>
+              </div>
+          </div>
+          <div id="randomSong">
+            <button id="randomS" class="m-3 btn ">Give me random song</button>
+            <span id="rSong"></span>
+          </div>
+        </div>
+      </div>
+      <div id="adminPage" style="display:'none'">
+        <h2 class="text-center m-3">Admin page</h2> 
+      <div id="addCategory" class="container">
+        <h2>Add category</h2>
+        <form id="formCat">
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" id="category" placeholder="Category">
+          </div>
+          <button id="addSC">Add subcategory </button>
+          <span id="SCspan"></span>
+          <button type="submit" class="btn btn-primary">Add category</button>
+          </form>
+      </div>
+      </div>
+      </div>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+<script src="login.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDGO0k5JGDYs-pqzJyZvPw9EliPyGnXeq0",
+    authDomain: "crud-23f0c.firebaseapp.com",
+    databaseURL: "https://crud-23f0c.firebaseio.com",
+    projectId: "crud-23f0c",
+    storageBucket: "crud-23f0c.appspot.com",
+    messagingSenderId: "903011003983",
+    appId: "1:903011003983:web:aae7e4ea1d46a5320a843a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  //firebase.analytics();
+
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const ref = firebase.database().ref('Songs').limitToLast(6);
+  db.settings({timestampsInSnapshots:true})
+  const siBTN  = document.querySelector("#SI");
+  const loBTN  = document.querySelector("#LI");
+  const RG  = document.getElementById("regpage");
+  var LOG  = document.getElementById("login");
+  const categories = document.querySelector("#categories");
+  //const selectBTN = document.querySelector("#selectBTN");
+  siBTN.addEventListener("click",function(){
+    console.log("gfdgd")
+      LOG.style.display = "none";
+      RG.style.display = "block";
+  });
+  loBTN.addEventListener("click",(e)=>{
+    LOG.style.display = "block";
+    RG.style.display = "none";
+    console.log("login page")
+    })
+</script>
+<script src="auth.js"></script>
+<script src="Strategy.js"></script>
+<script src="Factory.js"></script>
+<script src="Iterator.js"></script>
+<!--<script src="userpage.js"></script>-->
+<script src="up2.js"></script>
+<script src="adminpage.js"></script>
+</body>
+</html>
